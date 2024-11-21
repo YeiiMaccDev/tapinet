@@ -1,0 +1,15 @@
+/* login.component.css */
+html, body {
+    height: 100%;
+  }
+  
+  .container {
+    height: 100%;
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: white;
+  }
+  

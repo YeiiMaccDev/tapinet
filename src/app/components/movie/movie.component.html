@@ -1,0 +1,13 @@
+<div class="container mt-5" style="min-height: 90vh;">
+    <div class="row">
+        @for (movie of movies; track movie.id) {
+        <app-movie-card [movieInfo]="movie" class="col-sm-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+        </app-movie-card>
+        }
+    </div>
+    <app-pagination 
+    [currentPage]="currentPage"
+    (incrementPage)="incrementPage()"
+    (decrementPage)="decrementPage()"
+    ></app-pagination>
+</div>

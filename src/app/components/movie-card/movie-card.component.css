@@ -1,0 +1,11 @@
+.light-hover {
+    transition: all .2s ease-in-out;
+    box-shadow: 0 3px 6px rgba(255, 255, 255, 0.4);
+}
+
+.light-hover:hover {
+    /* border-color: #17a2b8; */
+    border-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.7);
+    transition: all .5s ease-in-out;
+}

@@ -1,0 +1,13 @@
+/* captive-portal.component.css */
+html,
+body {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+button {
+    margin-top: 20px;
+}

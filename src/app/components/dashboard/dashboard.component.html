@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="text-center p-5 shadow-lg rounded bg-dark text-white">
+        <h1 class="display-4 text-white">Conteo de tapitas</h1>
+        <p class="lead">
+            Para continuar oprimir boton e iniciar a ingresar las tapitas.
+        </p>
+
+        <p *ngIf="counting" class="lead bg-warning text-dark">
+           Contando ...
+        </p>
+        <p *ngIf="waitingMessage" class="lead bg-warning text-dark">
+            Estableciendo conexión con módulo de internet... 
+        </p>
+        <p *ngIf="waitingMessage2" class="lead bg-success text-dark">
+            Recuperando número de tapitas ingresadas ...
+        </p>
+        @if(counting) {
+            <button class="btn btn-success btn-lg m-1" (click)="stopCounting()">Detener Conteo</button>
+        } @else {
+            <button class="btn btn-warning btn-lg m-1" (click)="startCounting()">Iniciar Conteo</button>
+        }
+    </div>
+</div>

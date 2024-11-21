@@ -1,0 +1,60 @@
+<div class="container d-flex justify-content-center align-items-center vh-100 bg-dark text-white">
+    <div class="card shadow-lg p-5 rounded bg-dark text-white" style="width: 100%; max-width: 400px;">
+      
+      <h3 class="card-title text-center text-white">Regístrate</h3>
+      
+      <form (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+  
+        <!-- Campo de Nombre -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre completo</label>
+          <input 
+            type="text" 
+            id="name" 
+            class="form-control" 
+            formControlName="name"
+            placeholder="Introduce tu nombre completo" 
+            required>
+        </div>
+  
+        <!-- Campo de Correo -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input 
+            type="email" 
+            id="email" 
+            class="form-control" 
+            formControlName="email"
+            placeholder="Introduce tu correo electrónico" 
+            required>
+        </div>
+  
+        <!-- Campo de Contraseña -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            class="form-control" 
+            formControlName="password"
+            placeholder="Introduce tu contraseña" 
+            required>
+        </div>
+  
+        <!-- Botón de registro -->
+        <button 
+          type="submit" 
+          class="btn btn-primary btn-block w-100" 
+          [disabled]="registerForm.invalid">
+          Registrarse
+        </button>
+  
+        <!-- Link para redirigir al login -->
+        <div class="text-center mt-3">
+          <p><a routerLink="/login">¿Ya tienes cuenta? Inicia sesión aquí</a></p>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

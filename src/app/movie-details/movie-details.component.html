@@ -1,0 +1,49 @@
+@if (!movieInfo) {
+<div class="container mt-5">
+    <h2>Buscando...</h2>
+</div>
+} @else {
+<div class="container mt-5">
+    <div class="d-flex justify-content-center flex-column">
+        <h2>Detalles de {{movieInfo.title}}</h2>
+        <div class="card mb-3" style="max-width: 1200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img [src]="getImageUrl(movieInfo.poster_path)" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">{{movieInfo.title}}</h5>
+                        <p class="card-text"> {{movieInfo.tagline}}</p>
+                        <hr>
+                        <div class="d-flex flex-row w-100 justify-content-between">
+                            @for (genre of movieInfo.genres; track genre.id) {
+                            <p> {{genre.name}}</p>
+                            }
+                        </div>
+                        <hr>
+                        <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow=""
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success p-2"
+                                [style.width.%]="(movieInfo.vote_average * 10).toFixed(1)">{{(movieInfo.vote_average *
+                                10).toFixed(1)}} %</div>
+                        </div>
+                        <hr>
+                        <p class="card-text"> {{movieInfo.overview}}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{movieInfo.release_date}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card text-bg-dark ratio ratio-1x1">
+            <img [src]="getImageUrl(movieInfo.backdrop_path)" class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title">{{movieInfo.title}}</h5>
+                <p class="card-text">{{movieInfo.tagline}}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+}
