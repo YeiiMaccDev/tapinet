@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TimesComponent } from './components/times/times.component';
+import { TimesAdminComponent } from './components/times-admin/times-admin.component';
 
 // export const routes: Routes = [
 //     {path: 'movies', component: MovieComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'dashboard', component: DashboardComponent},
     {path: 'dashboard/times', component: TimesComponent},
+    {path: 'dashboard/times-admin', component: TimesAdminComponent},
     {path: 'inicio/search/:query', component: MovieComponent},
     {path: 'inicio/:movieType', component: MovieComponent},
     {path: 'inicio/:movieId', component: MovieDetailsComponent},

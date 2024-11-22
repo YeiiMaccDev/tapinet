@@ -1,14 +1,25 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
-    <div class="text-center p-5 shadow-lg rounded bg-dark text-white">
-        <h1 class="display-4 text-white">Tiempo de Conexion</h1>
-        <p class="lead">
-            Estamos verificando tu conexión a internet...
-        </p>
-        <p class="lead">
-            Tiene <strong> X </strong> minutos de conexion gratis...
-        </p>
-
-        <button class="btn btn-primary" (click)="redirectToGoogle()">Ir a Google</button>
-        
+    <div *ngIf="userConnection; else loadingTemplate" class="text-center p-5 shadow-lg rounded bg-dark text-white">
+      <h1 class="display-4 text-white">Tiempo de Conexión</h1>
+      <p class="lead">Estamos verificando tu conexión a internet...</p>
+      <p class="lead">
+        Tiene <strong>{{ userConnection.temporaryTime }}</strong> minutos de conexión gratis ...
+      </p>
+      <p class="lead">
+        Ingreso <strong>{{ userConnection.plasticCaps }}</strong> tapas ...
+      </p>
+      <button class="btn btn-primary" (click)="redirectToGoogle()">Ir a Google</button>
     </div>
-</div>
+  
+    <ng-template #loadingTemplate>
+      <div class="text-center p-5 shadow-lg rounded bg-dark text-white">
+        <h2 class="text-white">Cargando información...</h2>
+        <p class="lead">Por favor espera...</p>
+      </div>
+    </ng-template>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+F  

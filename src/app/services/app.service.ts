@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IMovie, IMovieDetails } from '../interfaces/movie';
 import { Observable } from 'rxjs';
 
@@ -27,4 +27,49 @@ export class AppService {
     return this._http.post<any>(`${apiUrl}/users`, { name, email, password });
   }
 
+
+
+  createTimeConnection(temporaryTime: number, plasticCaps: number, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'x-token': token
+    });
+
+    const body = {
+      temporaryTime,
+      plasticCaps
+    };
+
+    return this._http.post<any>(`${apiUrl}/time-connections`, body, { headers });
+  }
+
+
+  getAllTimeConnections(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'x-token': token
+    });
+
+    return this._http.get<any>(`${apiUrl}/time-connections`, { headers });
+  }
+
+  updateTimeConnection(id: string, temporaryTime: number, plasticCaps: number, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'x-token': token
+    });
+
+    const body = {
+      temporaryTime,
+      plasticCaps
+    };
+
+    return this._http.put<any>(`${apiUrl}/time-connections/${id}`, body, { headers });
+  }
+
+
+  getUserLatestConnection(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'x-token': token
+    });
+
+    return this._http.get<any>(`${apiUrl}/time-connections/user`, { headers });
+  }
 }
